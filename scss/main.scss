@@ -1,14 +1,8 @@
 $primary-color: hsl(240, 38%, 20%);
 $secondary-color: hsl(240, 18%, 77%);
 
-@mixin media-md {
-  @media screen and (min-width: 992px) {
-    @content;
-  }
-}
-
 @mixin media-lg {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 992px) {
     @content;
   }
 }
@@ -23,6 +17,7 @@ $secondary-color: hsl(240, 18%, 77%);
 
 body {
   height: 100%;
+  min-height: 100vh;
   background: url(../images/pattern-curve.svg) no-repeat bottom left;
   display: flex;
   flex-direction: column;
@@ -85,6 +80,7 @@ body {
     display: none;
     text-align: center;
     animation: opacity 1s ease-in-out;
+    margin-bottom: 2rem;
 
     @include media-lg {
       text-align: left;
