@@ -22,10 +22,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  @include media-lg {
-    height: 100vh;
-  }
 }
 
 .container {
