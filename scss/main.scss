@@ -1,0 +1,231 @@
+$primary-color: hsl(240, 38%, 20%);
+$secondary-color: hsl(240, 18%, 77%);
+
+@mixin media-md {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: $primary-color;
+}
+
+body {
+  height: 100%;
+  background: url(../images/pattern-curve.svg) no-repeat bottom left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include media-lg {
+    height: 100vh;
+  }
+}
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+}
+
+.main {
+  padding: 4rem 0;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include media-lg {
+    flex-direction: row;
+    align-items: center;
+    width: 78vw;
+  }
+}
+
+.testimonial-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  max-width: 100%;
+
+  @include media-lg {
+    align-items: flex-start;
+    width: 35%;
+    height: 300px;
+  }
+
+  img {
+    position: absolute;
+    top: -10px;
+    width: 15%;
+
+    @include media-lg {
+      width: 100px;
+      margin-left: 5rem;
+      top: -40px;
+    }
+  }
+
+  .text-container {
+    display: none;
+    text-align: center;
+    animation: opacity 1s ease-in-out;
+
+    @include media-lg {
+      text-align: left;
+      position: absolute;
+      width: 40vw;
+      z-index: 2;
+    }
+
+    @keyframes opacity {
+      0% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    p {
+      font-size: calc(22px + 6 * ((100vw - 320px) / 680));
+      font-weight: 300;
+      margin-bottom: 1rem;
+
+      @include media-lg {
+        margin-bottom: 2.5rem;
+      }
+    }
+
+    h5 {
+      font-size: 1.2rem;
+
+      .job-title {
+        display: block;
+        font-weight: 300;
+        color: $secondary-color;
+
+        @include media-lg {
+          display: inline;
+        }
+      }
+    }
+  }
+
+  .active {
+    display: block;
+  }
+}
+
+.testimonial-img {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem;
+  margin-bottom: 1rem;
+  @include media-lg {
+    padding: 1.5rem 2rem 2rem 3rem;
+    width: 60%;
+  }
+
+  .img-background {
+    position: absolute;
+    display: block;
+    max-width: 100%;
+    z-index: -1;
+    top: 0;
+    @include media-lg {
+      top: -30px;
+      max-width: 110%;
+    }
+  }
+
+  .img-container {
+    max-width: 600px;
+    background: white;
+    box-shadow: 0 25px 70px -40px $primary-color;
+
+    img {
+      width: 100%;
+      display: none;
+      animation: opacity 1s ease-in-out;
+    }
+
+    @keyframes opacity {
+      0% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .active {
+      display: block;
+    }
+  }
+
+  .button-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    bottom: 10px;
+    @include media-lg {
+      align-self: start;
+      left: 25%;
+      bottom: 10px;
+    }
+
+    button {
+      margin-top: 0.25rem;
+      height: 50px;
+      width: 50px;
+      border: none;
+      cursor: pointer;
+      padding-top: 0.25rem;
+      transition: all 0.7s ease-in-out;
+      outline: none;
+    }
+
+    .prev {
+      border-radius: 1.5rem 0 0 1.5rem;
+    }
+
+    .next {
+      border-radius: 0 1.5rem 1.5rem 0;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background: $secondary-color;
+    }
+  }
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: hsl(228, 45%, 44%);
+  margin-bottom: 2rem;
+
+  a {
+    text-decoration: none;
+    color: $secondary-color;
+  }
+}
