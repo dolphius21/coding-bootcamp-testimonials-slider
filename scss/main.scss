@@ -68,30 +68,22 @@ body {
     @include media-lg {
       width: 100px;
       margin-left: 5rem;
-      top: -40px;
+      top: -30px;
     }
   }
 
   .text-container {
     display: none;
     text-align: center;
-    animation: opacity 1s ease-in-out;
     margin-bottom: 2rem;
+    animation: up 1s ease-out;
 
     @include media-lg {
       text-align: left;
       position: absolute;
       width: 40vw;
       z-index: 2;
-    }
-
-    @keyframes opacity {
-      0% {
-        opacity: 0.5;
-      }
-      100% {
-        opacity: 1;
-      }
+      animation: right 1s ease-out;
     }
 
     p {
@@ -150,22 +142,12 @@ body {
 
   .img-container {
     max-width: 600px;
-    background: white;
-    box-shadow: 0 25px 70px -40px $primary-color;
 
     img {
       width: 100%;
       display: none;
-      animation: opacity 1s ease-in-out;
-    }
-
-    @keyframes opacity {
-      0% {
-        opacity: 0.5;
-      }
-      100% {
-        opacity: 1;
-      }
+      animation: image 1s ease-out;
+      box-shadow: 0 25px 70px -40px $primary-color;
     }
 
     .active {
@@ -219,5 +201,38 @@ body {
   a {
     text-decoration: none;
     color: $secondary-color;
+  }
+}
+
+@keyframes right {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes image {
+  0% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
